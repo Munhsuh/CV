@@ -2,9 +2,12 @@
 
 # Create your views here.
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog
 from .models import HomeContent
+
+from .models import Guestbook
+from .forms import GuestbookForm
 
 
 
@@ -12,9 +15,6 @@ from .models import HomeContent
 def home(request):
     content = HomeContent.objects.first()  # get latest/first entry
     return render(request, 'home/home.html', {'content': content})
-
-
-
 
 
 def blog(request):
@@ -25,11 +25,27 @@ def blog(request):
     posts = Blog.objects.all()
     return render(request, 'home/blog.html', {'posts': posts})
 
-from .models import Guestbook
+
+# here I will update the guestbook
 
 def guestbook(request):
-    entries = Guestbook.objects.all()
-    return render(request, 'home/guestbook.html', {'entries': entries})
+    if request.method == 'POST':
+        form = GuestbookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('guestbook')
+    else:
+        form = GuestbookForm()
+
+    messages = Guestbook.objects.order_by('-created_at')
+
+    return render(request, 'home/guestbook.html', {
+        'form': form,
+        'messages': messages
+    })
+
+
+# here updated the guestbook code will be ended
 
 def contact(request):
     return render(request, 'home/contact.html')
