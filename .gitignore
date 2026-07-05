@@ -1,0 +1,21 @@
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# Django stuff
+db.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Static files (optional if you collectstatic later)
+staticfiles/
