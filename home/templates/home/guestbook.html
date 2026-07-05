@@ -1,4 +1,16 @@
 {% extends "home/base.html" %}
 {% block content %}
-<h1>Guestbook Page</h1>
+
+<h1>Guestbook</h1>
+
+{% for entry in entries %}
+    <div>
+        <h3>{{ entry.name }}</h3>
+        <p>{{ entry.message }}</p>
+        <small>{{ entry.created_at }}</small>
+    </div>
+    <hr>
+{% empty %}
+    <p>No guestbook entries yet.</p>
+{% endfor %}
 {% endblock %}
