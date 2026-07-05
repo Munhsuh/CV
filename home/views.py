@@ -5,7 +5,7 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'home/home.html')
+    return render(request, 'home/base.html')
 
 def blog(request):
     return render(request, 'home/blog.html')
