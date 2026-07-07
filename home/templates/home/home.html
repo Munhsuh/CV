@@ -1,7 +1,7 @@
 
 {% extends "home/base.html" %}
 
-{% block content %}
-<h1>{{ content.title }}</h1>
-<p>{{ content.description }}</p>
-{% endblock %}
+{% for item in content %}
+    <h1>{{ item.title }}</h1>
+    <p>{{ item.description }}</p>
+{% endfor %}
