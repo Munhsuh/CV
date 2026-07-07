@@ -10,3 +10,5 @@ from .models import HomeContent
 admin.site.register(Blog)
 admin.site.register(Guestbook)
 admin.site.register(HomeContent)
+
+
