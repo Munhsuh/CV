@@ -21,8 +21,8 @@ def home(request):
 # updated code STARTs here
 
 def home(request):
-    contents = HomeContent.objects.all().order_by('-id')
-    return render(request, 'home/home.html', {'contents': contents})
+    content = HomeContent.objects.all().order_by('-id')
+    return render(request, 'home/home.html', {'content': content})
 
 
 # uptaded code ENDS here
