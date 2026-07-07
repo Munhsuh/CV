@@ -10,16 +10,27 @@ from .models import Guestbook
 from .forms import GuestbookForm
 
 
-
-
+# I gonna change to make admin works btter code is correct but I need to have different one
+"""
 def home(request):
     content = HomeContent.objects.first()  # get latest/first entry
     return render(request, 'home/home.html', {'content': content})
+"""
+#  this is end of the change
+
+# updated code STARTs here
+
+def home(request):
+    contents = HomeContent.objects.all().order_by('-id')
+    return render(request, 'home/home.html', {'contents': contents})
 
 
+# uptaded code ENDS here
+
+"""
 def blog(request):
     return render(request, 'home/blog.html')
-
+"""
 
 def blog(request):
     posts = Blog.objects.all()
