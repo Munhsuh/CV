@@ -8,6 +8,7 @@ from .models import HomeContent
 
 from .models import Guestbook
 from .forms import GuestbookForm
+from .models import Contact
 
 
 # I gonna change to make admin works btter code is correct but I need to have different one
@@ -58,8 +59,11 @@ def guestbook(request):
 
 # here updated the guestbook code will be ended
 
+from .models import Contact
+
 def contact(request):
-    return render(request, 'home/contact.html')
+    contact = Contact.objects.first()
+    return render(request, "home/contact.html", {"contact": contact})
 
 
 
