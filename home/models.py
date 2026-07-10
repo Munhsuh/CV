@@ -29,8 +29,13 @@ class HomeContent(models.Model):
     def __str__(self):
         return self.title
     
-
-
+class Contact(models.Model):
+    email = models.EmailField()
+    phone = models.CharField(max_length=50)
+    address = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.email
+
+
+    
