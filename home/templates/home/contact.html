@@ -1,12 +1,11 @@
-
-
 {% extends "home/base.html" %}
 
 {% block content %}
 
 <h1>Contact</h1>
 
-<p>Email: Munhsuh71@email.com</p>
-<p>Phone: +976 89169590</p>
-<p>Address: Mikr 10, Darkhan, Darkhan Uul,Mongolia</p>
+<p>Email: {{ contact.email }}</p>
+<p>Phone: {{ contact.phone }}</p>
+<p>Address: {{ contact.address }}</p>
+
 {% endblock %}
