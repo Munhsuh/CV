@@ -2,11 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Resume Website</title>
+    <title>{% block title %}My Resume{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Basic styling (you can move to CSS later) -->
     <style>
+       * {
+    box-sizing: border-box;
+        }
+
+       .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        } 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -17,12 +27,14 @@
             color: white;
             padding: 15px;
             text-align: center;
+
         }
 
         nav {
             background: #444;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -45,13 +57,34 @@
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
             width: 100%;
         }
-    </style>
-</head>
+        @media (max-width: 600px) {
 
+         header h1 {
+        font-size: 24px;
+        }
+
+         nav {
+        flex-direction: column;
+        }
+
+        nav a {
+        text-align: center;
+        }
+
+        main {
+        padding: 10px;
+       }
+
+        .container {
+        width: 95%;
+        }
+
+       }
+    </style>
+
+   </head>
 <body>
 
     <!-- HEADER -->
@@ -69,8 +102,12 @@
 
     <!-- MAIN CONTENT (DYNAMIC PART) -->
     <main>
-        {% block content %}
-        {% endblock %}
+        <div class="container">
+
+    {% block content %}
+    {% endblock %}
+
+</div>
     </main>
 
     <!-- FOOTER -->
