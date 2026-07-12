@@ -59,7 +59,6 @@ def guestbook(request):
 
 # here updated the guestbook code will be ended
 
-from .models import Contact
 
 def contact(request):
     contact = Contact.objects.first()

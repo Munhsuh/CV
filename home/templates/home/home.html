@@ -5,7 +5,7 @@
 
 {% for item in content %}
     <h1>{{ item.title }}</h1>
-    <p>{{ item.description }}</p>
+    <div>{{ item.description|safe }}</div>
 {% endfor %}
 
 {% endblock %}
