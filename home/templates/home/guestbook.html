@@ -5,20 +5,46 @@
 
 <h1>Guestbook</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Post Comment</button>
-</form>
+<div class="guestbook-form">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Post Comment</button>
+
+    </form>
+
+</div>
+
 
 <hr>
 
+
+<h2>Comments</h2>
+
+<div class="comments">
+
 {% for msg in messages %}
-    <div style="margin-bottom: 15px;">
-        <strong>{{ msg.name }}</strong><br>
+
+    <div class="comment-card">
+
+        <strong>{{ msg.name }}</strong>
+
         <p>{{ msg.message }}</p>
+
         <small>{{ msg.created_at }}</small>
+
     </div>
+
+{% empty %}
+
+    <p>No comments yet.</p>
+
 {% endfor %}
+
+</div>
+
 
 {% endblock %}
